@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useParams,useNavigate } from "react-router-dom";
 import { faLessThan,faGreaterThan,faShuffle,faBookmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import Duration from "./Duration";
 let RoutedPart = () => {
   let [data, setData] = useState([]);
   let [loading, setLoading] = useState(true);
@@ -12,7 +12,7 @@ let RoutedPart = () => {
   let dataTop = useLocation();
   let innerData = dataTop.state.topSongs;
   console.log(innerData);
-
+   
   let name = useParams();
   console.log(name);
 
@@ -26,6 +26,7 @@ let RoutedPart = () => {
       
   }, [name.name]);
 
+  
   let startIndex = (currentPage - 1) * itemsPerPage;
   let endIndex = startIndex + itemsPerPage;
   let currentData = (data.songs || []).slice(startIndex, endIndex);
@@ -54,7 +55,8 @@ let RoutedPart = () => {
           <p>Lorem ipsum dolor sit amet.</p>
           <div className="count">
               <span>{(data.songs || []).length} songs</span>
-              <span>Duration</span>
+              <Duration songs={data.songs}/>
+              {/* <span>duration</span> */}
               <span>{data.follows} Follows</span>
           </div>
           <div className="shuffle">

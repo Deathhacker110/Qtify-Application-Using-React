@@ -3,6 +3,7 @@ body {
     background-color: black;
     margin: 0;
     padding: 0px;
+    width: 100%;
     box-sizing: border-box;
     font-family:poppins,sans-serif;
   }
@@ -451,3 +452,4 @@ footer{
     transform: translate(0px);
   }
 }
+
